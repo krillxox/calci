@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/krillxox/Documents/git/calculator/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I. -I../ -Icalculator_autogen/include -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -g -fPIC -std=gnu++11 -o CMakeFiles/calculator.dir/calculator_autogen/mocs_compilation.cpp.o -c /home/krillxox/Documents/git/calculator/build/calculator_autogen/mocs_compilation.cpp",
+  "file": "/home/krillxox/Documents/git/calculator/build/calculator_autogen/mocs_compilation.cpp"
+},
+{
+  "directory": "/home/krillxox/Documents/git/calculator/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I. -I../ -Icalculator_autogen/include -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -g -fPIC -std=gnu++11 -o CMakeFiles/calculator.dir/main.cpp.o -c /home/krillxox/Documents/git/calculator/main.cpp",
+  "file": "/home/krillxox/Documents/git/calculator/main.cpp"
+},
+{
+  "directory": "/home/krillxox/Documents/git/calculator/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I. -I../ -Icalculator_autogen/include -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -g -fPIC -std=gnu++11 -o CMakeFiles/calculator.dir/calculator.cpp.o -c /home/krillxox/Documents/git/calculator/calculator.cpp",
+  "file": "/home/krillxox/Documents/git/calculator/calculator.cpp"
+},
+{
+  "directory": "/home/krillxox/Documents/git/calculator/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I. -I../ -Icalculator_autogen/include -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -g -fPIC -std=gnu++11 -o CMakeFiles/calculator.dir/button.cpp.o -c /home/krillxox/Documents/git/calculator/button.cpp",
+  "file": "/home/krillxox/Documents/git/calculator/button.cpp"
+},
+{
+  "directory": "/home/krillxox/Documents/git/calculator/build",
+  "command": "/usr/bin/g++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I. -I../ -Icalculator_autogen/include -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -g -fPIC -std=gnu++11 -o CMakeFiles/calculator.dir/upperbutton.cpp.o -c /home/krillxox/Documents/git/calculator/upperbutton.cpp",
+  "file": "/home/krillxox/Documents/git/calculator/upperbutton.cpp"
+}
+]
