@@ -1,5 +1,0 @@
-/home/krillxox/Documents/git/calculator/build/CMakeFiles/rebuild_cache.dir
-/home/krillxox/Documents/git/calculator/build/CMakeFiles/edit_cache.dir
-/home/krillxox/Documents/git/calculator/build/CMakeFiles/calculator.dir
-/home/krillxox/Documents/git/calculator/build/CMakeFiles/calculator_autogen_timestamp_deps.dir
-/home/krillxox/Documents/git/calculator/build/CMakeFiles/calculator_autogen.dir

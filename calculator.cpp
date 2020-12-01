@@ -216,6 +216,7 @@ int precedence(QChar op){
 void calculator::equalClicked(){
     QStack<double> number;
     QStack<QChar> ops;
+    qDebug() << internalString;
     number.push(0);
     // QString expression = display->text();
     QChar s = '0';
@@ -276,7 +277,7 @@ void calculator::equalClicked(){
             number.pop();
             // std::cout << value;
             number.push(value);
-            // std::cout << number.top();
+            std::cout << number.top();
             
         }else
         {
@@ -402,37 +403,43 @@ void calculator::backspaceClicked(){
 
 void calculator::updateOperatorDisplay(QString op){
     QString tmp = display->text();
-    if (tmp[(int)tmp.size() - 1].isDigit())
+    if (!tmp.isEmpty())
     {
-        // qDebug() << tmp[(int)tmp.size() - 1].isDigit();
-        // if (tmp.size() >= 1)
-        // {
-            if ((tmp[(int)tmp.size() - 1] == '-') || (tmp[(int)tmp.size() - 1] == '+') 
-            || (tmp[(int)tmp.size() - 1] == '*') || (tmp[(int)tmp.size() - 1] == '/'))
+        if (tmp[(int)tmp.size() - 1].isDigit())
+        {
+            // qDebug() << tmp[(int)tmp.size() - 1].isDigit();
+            // if (tmp.size() >= 1)
+            // {
+            if ((tmp[(int)tmp.size() - 1] == '-') || (tmp[(int)tmp.size() - 1] == '+') || (tmp[(int)tmp.size() - 1] == '*') || (tmp[(int)tmp.size() - 1] == '/'))
             {
                 internalString += "#";
-            }else
-            {
-            internalString += op;
             }
-        
-        
-        // }
-    // qDebug() << internalString;
-        // if (display->text() == "0")
-        // {
-        //     display->clear();
-        //     display->setText(display->text() + pressedOperator->text());
-        // }else
-        // {
-        display->setText(display->text() + op);
-        // }
+            else
+            {
+                internalString += op;
+            }
+
+            // }
+            // qDebug() << internalString;
+            // if (display->text() == "0")
+            // {
+            //     display->clear();
+            //     display->setText(display->text() + pressedOperator->text());
+            // }else
+            // {
+            display->setText(display->text() + op);
+            // }
+        }
+        else
+        {
+            tmp.chop(1);
+            display->setText(tmp + op);
+        }
     }else
     {
-        tmp.chop(1);
-        display->setText(tmp + op);
+        display->setText(op);
     }
-    
+
         // display->setText(display->text() + event->key());
         waitingOperator = false;
 }
@@ -440,37 +447,72 @@ void calculator::updateOperatorDisplay(QString op){
 void calculator::changeSignClicked(){
      QString tmp = display->text();
      QString pre = "";
+    if ((tmp.size() == 1) && (tmp == "0"))
+    {
+        return;
+    }
+    
      int i = tmp.size() - 1, j = 0;
     // qDebug() << tmp.chop(3);
-     while ((i >= 0) && (tmp[i].isDigit()))
+     while (i >= 0)
      {
-        pre = tmp[i] + pre;
-        tmp.chop(1);
-        internalString.chop(1);
-         --i;
+        //  qDebug() << "xhexk";
+         if (tmp[i].isDigit() || tmp[i] == '.')
+         {
+             pre = tmp[i] + pre;
+             tmp.chop(1);
+             internalString.chop(1);
+             --i;
+             continue;
+         }
+         break;
      }
-    if (i > 0)
+     qDebug() << i;
+    if (i > 0) 
     {
-         if(tmp[i] == '-'){
-        tmp.chop(1);
-        internalString.chop(1);
-        tmp += pre;
-        internalString += pre;
-     }else{
-         internalString += "#" + pre;
-         tmp += "-" + pre;
+        if(tmp[i] == '-'){
+            tmp.chop(1);
+            internalString.chop(1);
+            if (!tmp[i - 1].isDigit())
+            {
+                tmp += pre;
+                internalString += pre;
+            }else
+            {
+                tmp += "+" + pre;
+                internalString += "+" + pre;
+            }
+        }else{
+            //  tmp.chop(1);
+            //  internalString.chop(1);
+            internalString += "#" + pre;
+            tmp += "-" + pre;
      }
-    }else
+
+
+
+    }else 
     {
-         if(tmp[0] == '-'){
-        tmp.chop(1);
-        internalString.chop(1);
-        tmp += pre;
-        internalString += pre;
-     }else{
-         internalString += "#" + pre;
-         tmp += "-" + pre;
-     }
+        // if(tmp[0] == '-'){
+        //     tmp.chop(1);
+        //     internalString.chop(1);
+        //     tmp += pre;
+        //     internalString += pre;
+        // }else{
+        //     internalString += "#" + pre;
+        //     tmp += "-" + pre;
+        // }
+        if (tmp.isEmpty())
+        {
+            internalString += "#" + pre;
+            tmp += "-" + pre;
+        }else
+        {
+            tmp.chop(1);
+            internalString.chop(1);
+            tmp += pre;
+            internalString += pre;
+        }
     }
     
     
