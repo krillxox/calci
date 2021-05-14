@@ -410,14 +410,16 @@ void calculator::updateOperatorDisplay(QString op){
             // qDebug() << tmp[(int)tmp.size() - 1].isDigit();
             // if (tmp.size() >= 1)
             // {
-            if ((tmp[(int)tmp.size() - 1] == '-') || (tmp[(int)tmp.size() - 1] == '+') || (tmp[(int)tmp.size() - 1] == '*') || (tmp[(int)tmp.size() - 1] == '/'))
-            {
-                internalString += "#";
-            }
-            else
-            {
+            // if ((tmp[(int)tmp.size() - 1] == '-') || (tmp[(int)tmp.size() - 1] == '+') ||
+            //  (tmp[(int)tmp.size() - 1] == '*') || (tmp[(int)tmp.size() - 1] == '/'))
+            // {
+            //     internalString += "#";
+            //     qDebug() << internalString; 
+            // }
+            // else
+            // {
                 internalString += op;
-            }
+            // }
 
             // }
             // qDebug() << internalString;
@@ -427,12 +429,15 @@ void calculator::updateOperatorDisplay(QString op){
             //     display->setText(display->text() + pressedOperator->text());
             // }else
             // {
+                qDebug() << "Checo";
             display->setText(display->text() + op);
             // }
         }
         else
         {
             tmp.chop(1);
+            internalString.chop(1);
+            internalString += op;
             display->setText(tmp + op);
         }
     }else
@@ -467,7 +472,7 @@ void calculator::changeSignClicked(){
          }
          break;
      }
-     qDebug() << i;
+    //  qDebug() << i;
     if (i > 0) 
     {
         if(tmp[i] == '-'){
@@ -517,5 +522,5 @@ void calculator::changeSignClicked(){
     
     
      display->setText(tmp);
-     qDebug() << pre;
+    //  qDebug() << pre;
 }
