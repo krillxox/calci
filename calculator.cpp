@@ -11,7 +11,13 @@ calculator::calculator(QWidget *parent)
     : QMainWindow(parent)
 {
     setFixedSize(400, 500);
-    setDisplay();
+    // setDisplay();
+    display = new Display();
+    setWindowTitle(QString("Calculator"));
+    QAction *scientificMode = new QAction(QString("Scientific Mode"), this);
+    switchMode = menuBar()->addMenu("Switch Mode");
+    switchMode->addAction(scientificMode);
+    connect(scientificMode, SIGNAL(triggered()), this, SLOT(openScientificMode()));
     window = new QWidget();
     layout = new QGridLayout();
     layout->setSpacing(0);
@@ -27,9 +33,10 @@ calculator::calculator(QWidget *parent)
     
 }
 
-// calculator::~calculator()
-// {
-// }
+calculator::~calculator()
+{
+    delete window;
+}
 
 
 void calculator::setNumpad(){
@@ -68,16 +75,16 @@ void calculator::setNumpad(){
     // layout->addWidget(operation[5], 3, 3, 3, 4);
 }
 
-void calculator::setDisplay(){
-    display = new QLabel(this);
-    display->setText(QString::number(0));
-    display->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
-    // display->isRightToLeft();
-    display->setAlignment(Qt::AlignRight);
-    // display->setAlignment(Qt::AlignBottom);
-    // display->cur;
-    display->setStyleSheet("font : 28px");
-}
+// void calculator::setDisplay(){
+//     display = new QLabel(this);
+//     display->setText(QString::number(0));
+//     display->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+//     // display->isRightToLeft();
+//     display->setAlignment(Qt::AlignRight);
+//     // display->setAlignment(Qt::AlignBottom);
+//     // display->cur;
+//     display->setStyleSheet("font : 28px");
+// }
 
 void calculator::setOperation(){
     operation[0] = new button(QString::fromStdString("AC"));
@@ -523,4 +530,13 @@ void calculator::changeSignClicked(){
     
      display->setText(tmp);
     //  qDebug() << pre;
+}
+
+
+void calculator::openScientificMode()
+{
+    scientificMode *window = new scientificMode(this);
+    window->show();
+    this->hide();
+
 }

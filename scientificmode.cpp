@@ -1,6 +1,13 @@
 #include "scientificmode.h"
 
-scientificMode::scientificMode(QWidget *parent) : QMainWindow(parent)
+scientificMode::scientificMode(QWidget *parent)
 {
     window = new QWidget();
+    layout = new QGridLayout();    
+    
+    
 }
+
+// void::calculator setNumpad() {
+//     button = new button();
+// }

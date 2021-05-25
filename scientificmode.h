@@ -1,17 +1,25 @@
 #ifndef SCIENTIFICMODE_H
 #define SCIENTIFICMODE_H
-
-#include <QMainWindow>
-// #include <QObject>
-#include <QWidget>
-
+#include "calculator.h"
+#include "Display.h"
+#include <QGridLayout>
+#include <QVBoxLayout>
+class calculator;
 class scientificMode : public QMainWindow
 {
     Q_OBJECT
 public:
-    scientificMode(QWidget *parent = nullptr);
+    scientificMode(QWidget *parent);
+private:
     QWidget *window;
-    QLabel * display;
+    Display *display;
+    QGridLayout *layout;
+    QVBoxLayout *displayAndButton;
+    button *number;
+    button *operation;
+
+private slots:
+
 };
 
 #endif // SCIENTIFICMODE_H

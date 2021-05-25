@@ -44,6 +44,10 @@ else()
     button.h
     upperbutton.cpp
     upperbutton.h
+    scientificmode.cpp
+    scientificmode.h
+    Display.h
+    Display.cpp
   )
 endif()
 
